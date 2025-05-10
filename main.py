@@ -20,6 +20,7 @@ CORS(app)  # Enable CORS for all routes
 def extract_text_from_url(url: str) -> Optional[str]:
     """
     Extract the main text content from a URL using BeautifulSoup.
+    Enhanced to handle complex news sites.
     
     Args:
         url: The URL to extract text from
@@ -37,26 +38,62 @@ def extract_text_from_url(url: str) -> Optional[str]:
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # Remove unwanted elements
-        for tag in soup(['script', 'style', 'header', 'footer', 'nav']):
-            tag.decompose()
+        for tag in soup(['script', 'style', 'header', 'footer', 'nav', 'aside', 'iframe']):
+            if tag:
+                tag.decompose()
         
-        # Try to find the main article content
-        article = soup.find('article')
-        if article:
-            paragraphs = article.find_all('p')
-        else:
-            # If no article tag, look for paragraphs in the body
-            paragraphs = soup.find_all('p')
+        # Comprehensive approach to find content
+        extracted_text = ""
         
-        # Extract text from paragraphs
-        text = ' '.join([p.get_text().strip() for p in paragraphs])
+        # 1. Try to find the main article content container
+        potential_containers = [
+            soup.find('article'),
+            soup.find('div', class_=['article-body', 'story-body', 'article-content', 'story-content', 'content-body', 'main-content']),
+            soup.find('main'),
+            soup.find('div', {'id': ['article-body', 'content-body', 'story-body', 'main-content']})
+        ]
         
-        # Clean up the text - remove extra whitespace
-        text = ' '.join(text.split())
+        # Filter out None values
+        content_containers = [container for container in potential_containers if container]
         
-        if text:
-            logger.debug("Successfully extracted text using BeautifulSoup")
-            return text
+        # If we found containers, use them
+        if content_containers:
+            for container in content_containers:
+                # Get paragraphs from container
+                try:
+                    paragraphs = container.find_all('p')
+                    if paragraphs:
+                        container_text = ' '.join([p.get_text().strip() for p in paragraphs])
+                        if container_text and len(container_text) > len(extracted_text):
+                            extracted_text = container_text
+                except (AttributeError, TypeError):
+                    logger.debug("Container doesn't support find_all, skipping")
+        
+        # 2. If no good container found, try a broader search (all paragraphs)
+        if not extracted_text:
+            # Get all paragraphs from the main body
+            all_paragraphs = soup.find_all('p')
+            if all_paragraphs:
+                extracted_text = ' '.join([p.get_text().strip() for p in all_paragraphs])
+        
+        # 3. Last resort - get the whole text and try to clean it
+        if not extracted_text:
+            # Grab all text from the body
+            body = soup.find('body')
+            if body:
+                extracted_text = body.get_text(separator=' ')
+        
+        # Clean up the text - remove extra whitespace, normalize spaces
+        if extracted_text:
+            extracted_text = ' '.join(extracted_text.split())
+            
+            # If it's too short, it's probably not useful content
+            if len(extracted_text) < 100:
+                logger.warning("Extracted text is too short, probably not good content")
+                return None
+                
+            logger.debug(f"Successfully extracted text. Length: {len(extracted_text)} characters")
+            return extracted_text
         else:
             logger.warning("Failed to extract meaningful text from the URL")
             return None
