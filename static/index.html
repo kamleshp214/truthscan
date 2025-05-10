@@ -3,211 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake News Detector</title>
-    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <title>TruthScan | Advanced Fake News Detector</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-search-location me-2"></i>
-                Fake News Detector
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i> About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="py-5 bg-dark text-white">
-        <div class="container px-4">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold">Verify Before You Share</h1>
-                    <p class="lead mb-4">Use AI-powered analysis to detect potentially misleading or false information in news articles.</p>
-                    <a href="#verification" class="btn btn-primary btn-lg">
-                        <i class="fas fa-check-circle me-2"></i>Verify News Now
-                    </a>
-                </div>
-                <div class="col-lg-4 d-none d-lg-block text-center">
-                    <i class="fas fa-newspaper text-primary" style="font-size: 160px;"></i>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container py-5">
-        <section id="verification" class="mb-5">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary bg-opacity-10">
-                    <h2 class="mb-0">
-                        <i class="fas fa-file-alt me-2"></i>
-                        News Verification
-                    </h2>
-                </div>
-                <div class="card-body">
-                    <div class="alert alert-info" role="alert">
-                        <i class="fas fa-info-circle me-2"></i>
-                        Provide either the article text or a URL to check if the news is potentially fake.
-                    </div>
-                    
-                    <div class="form-group mb-4">
-                        <label for="article-text" class="form-label">Article Text</label>
-                        <textarea id="article-text" class="form-control" rows="6" placeholder="Paste the article text here..."></textarea>
-                    </div>
-                    
-                    <div class="text-center my-3">
-                        <span class="divider-text">OR</span>
-                    </div>
-                    
-                    <div class="form-group mb-4">
-                        <label for="article-url" class="form-label">Article URL</label>
-                        <input type="url" id="article-url" class="form-control" placeholder="Enter the article URL (e.g., https://example.com/news)">
-                    </div>
-                    
-                    <div class="d-grid gap-2">
-                        <button id="verify-btn" class="btn btn-primary">
-                            <i class="fas fa-check-circle me-2"></i>Verify
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="result" class="mb-5" style="display: none;">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary bg-opacity-10">
-                    <h2 class="mb-0">
-                        <i class="fas fa-chart-pie me-2"></i>
-                        Verification Results
-                    </h2>
-                </div>
-                <div class="card-body">
-                    <!-- Loading spinner -->
-                    <div id="loading" class="text-center py-5" style="display: none;">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p class="mt-3">Analyzing article content...</p>
-                    </div>
-                    
-                    <!-- Results content -->
-                    <div id="result-content" style="display: none;">
-                        <div class="row">
-                            <div class="col-md-4 text-center mb-4 mb-md-0">
-                                <div id="result-icon-container" class="mb-3">
-                                    <i id="result-icon" class="fas fa-question-circle" style="font-size: 80px;"></i>
-                                </div>
-                                <h3 id="result-heading">Analyzing...</h3>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand d-flex align-items-center" href="#">
+                            <div class="logo-icon">
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <div class="col-md-8">
-                                <h4 class="mb-3">Confidence Score</h4>
-                                <div class="progress mb-3" style="height: 25px;">
-                                    <div id="confidence-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            <div class="logo-text">
+                                <span class="logo-primary">Truth</span><span class="logo-secondary">Scan</span>
+                            </div>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#tool">Detection Tool</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Hero Section -->
+            <div class="hero-section" id="home">
+                <div class="container">
+                    <div class="row align-items-center hero-content">
+                        <div class="col-lg-6">
+                            <h1 class="hero-title">
+                                Detect <span class="text-highlight">Fake News</span> with Advanced AI Analysis
+                            </h1>
+                            <p class="hero-subtitle">
+                                Our cutting-edge algorithm analyzes content patterns, sources, and language to identify potentially misleading information—particularly important in the India-Pakistan context.
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="#tool" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-magnifying-glass me-2"></i>Start Analyzing
+                                </a>
+                                <a href="#about" class="btn btn-outline-light btn-lg ms-3">
+                                    <i class="fas fa-info-circle me-2"></i>Learn More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="hero-image">
+                                <div class="truth-icon">
+                                    <i class="fas fa-check-circle"></i>
                                 </div>
-                                
-                                <div class="card bg-light bg-opacity-10 mt-4">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><i class="fas fa-info-circle me-2"></i>Analysis</h4>
-                                        <p id="result-message" class="card-text">Waiting for verification results...</p>
+                                <div class="fake-icon">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="scan-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="news-icon">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <div class="shield-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Tool Section -->
+            <section class="tool-section section-padding" id="tool">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Fake News Detection Tool</h2>
+                        <p class="section-subtitle">
+                            Analyze news articles and identify potential misinformation with our advanced detection technology
+                        </p>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="tool-card">
+                                <div class="tool-card-header">
+                                    <div class="tool-tabs">
+                                        <button class="tool-tab active" data-tab="text-tab">
+                                            <i class="fas fa-file-alt"></i> Article Text
+                                        </button>
+                                        <button class="tool-tab" data-tab="url-tab">
+                                            <i class="fas fa-link"></i> Article URL
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="tool-card-body">
+                                    <div class="tab-content" id="text-tab">
+                                        <div class="form-floating mb-4">
+                                            <textarea class="form-control" id="article-text" style="height: 220px" placeholder="Enter article text here"></textarea>
+                                            <label for="article-text">Paste the full article text here for analysis</label>
+                                        </div>
+                                    </div>
+                                    <div class="tab-content d-none" id="url-tab">
+                                        <div class="form-floating mb-4">
+                                            <input type="url" class="form-control" id="article-url" placeholder="https://example.com/news-article">
+                                            <label for="article-url">Enter the news article URL</label>
+                                        </div>
+                                        <div class="url-info">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>We'll automatically extract and analyze the main content from the provided URL.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="submit-container">
+                                        <button id="verify-btn" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-microscope me-2"></i>Analyze Content
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Results Section -->
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-10">
+                            <div class="results-card" id="results-card" style="display: none;">
+                                <div class="results-header">
+                                    <h3>
+                                        <i class="fas fa-chart-pie me-2"></i>
+                                        Analysis Results
+                                    </h3>
+                                </div>
+                                
+                                <!-- Loading Spinner -->
+                                <div id="loading-container" class="loading-container">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p>Analyzing content...</p>
+                                </div>
+                                
+                                <!-- Results Content -->
+                                <div id="results-content" class="results-content" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-lg-5 mb-4 mb-lg-0">
+                                            <div class="verdict-container">
+                                                <div id="verdict-indicator" class="verdict-indicator">
+                                                    <i id="verdict-icon" class="fas fa-question-circle"></i>
+                                                </div>
+                                                <h3 id="verdict-text" class="verdict-text">Verifying Content...</h3>
+                                                <div class="confidence-meter">
+                                                    <div class="confidence-label">
+                                                        <span>Confidence</span>
+                                                        <span id="confidence-percentage">0%</span>
+                                                    </div>
+                                                    <div class="confidence-bar-container">
+                                                        <div id="confidence-bar" class="confidence-bar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="analysis-details">
+                                                <h4 class="analysis-title">
+                                                    <i class="fas fa-clipboard-list me-2"></i>Detailed Analysis
+                                                </h4>
+                                                <div class="analysis-content">
+                                                    <p id="analysis-message">Awaiting analysis results...</p>
+                                                    
+                                                    <div class="analysis-factors">
+                                                        <div class="factor" id="factor-sensational">
+                                                            <div class="factor-icon">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            <div class="factor-details">
+                                                                <h5>Sensationalism</h5>
+                                                                <p>Checking for exaggerated or sensational language</p>
+                                                            </div>
+                                                            <div class="factor-indicator">
+                                                                <i class="fas fa-circle-question"></i>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="factor" id="factor-sources">
+                                                            <div class="factor-icon">
+                                                                <i class="fas fa-landmark"></i>
+                                                            </div>
+                                                            <div class="factor-details">
+                                                                <h5>Source Attribution</h5>
+                                                                <p>Checking for credible source references</p>
+                                                            </div>
+                                                            <div class="factor-indicator">
+                                                                <i class="fas fa-circle-question"></i>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="factor" id="factor-length">
+                                                            <div class="factor-icon">
+                                                                <i class="fas fa-text-height"></i>
+                                                            </div>
+                                                            <div class="factor-details">
+                                                                <h5>Content Depth</h5>
+                                                                <p>Evaluating content length and depth</p>
+                                                            </div>
+                                                            <div class="factor-indicator">
+                                                                <i class="fas fa-circle-question"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="results-actions">
+                                        <button id="new-analysis-btn" class="btn btn-outline-primary">
+                                            <i class="fas fa-redo me-2"></i>New Analysis
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Error Message -->
+                                <div id="error-container" class="error-container" style="display: none;">
+                                    <div class="error-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="error-content">
+                                        <h4>Analysis Error</h4>
+                                        <p id="error-message">Unable to complete analysis. Please try again.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="features-section section-padding bg-light">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">How It Works</h2>
+                        <p class="section-subtitle">
+                            Our multi-faceted approach to detecting potentially misleading information
+                        </p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h3>Language Analysis</h3>
+                                <p>
+                                    Identifies sensational language, exaggerated claims, and emotionally charged content that may indicate fake news.
+                                </p>
+                            </div>
+                        </div>
                         
-                        <div class="mt-4 text-center">
-                            <button id="new-verification-btn" class="btn btn-outline-primary">
-                                <i class="fas fa-redo me-2"></i>New Verification
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Error message -->
-                    <div id="error-message" class="alert alert-danger" role="alert" style="display: none;">
-                        <i class="fas fa-exclamation-triangle me-2"></i>
-                        <span id="error-text">An error occurred</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="mb-5">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary bg-opacity-10">
-                    <h2 class="mb-0">
-                        <i class="fas fa-info-circle me-2"></i>
-                        About This Tool
-                    </h2>
-                </div>
-                <div class="card-body">
-                    <p>This fake news detector uses a combination of AI techniques and rule-based analysis to identify potentially misleading or false information. It's especially relevant for the India-Pakistan context, where misinformation can have serious consequences.</p>
-                    
-                    <div class="row mt-4">
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100 border-0 bg-light">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-brain text-primary mb-3" style="font-size: 40px;"></i>
-                                    <h4>AI Analysis</h4>
-                                    <p>Uses pattern recognition to identify text patterns associated with fake news</p>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-sitemap"></i>
                                 </div>
+                                <h3>Source Verification</h3>
+                                <p>
+                                    Detects references to credible sources and proper attribution, key indicators of legitimate journalism.
+                                </p>
                             </div>
                         </div>
+                        
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100 border-0 bg-light">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-link text-primary mb-3" style="font-size: 40px;"></i>
-                                    <h4>URL Extraction</h4>
-                                    <p>Automatically extracts and analyzes article text from news URLs</p>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-robot"></i>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 border-0 bg-light">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-shield-alt text-primary mb-3" style="font-size: 40px;"></i>
-                                    <h4>Trust Indicators</h4>
-                                    <p>Evaluates key indicators of reliability including source attribution</p>
-                                </div>
+                                <h3>Pattern Recognition</h3>
+                                <p>
+                                    Employs advanced algorithms to identify text patterns commonly found in misleading articles.
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section class="about-section section-padding" id="about">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">About TruthScan</h2>
+                        <p class="section-subtitle">
+                            Combating misinformation in the India-Pakistan context
+                        </p>
+                    </div>
                     
-                    <div class="alert alert-warning mt-4">
-                        <h4><i class="fas fa-exclamation-triangle me-2"></i>Disclaimer</h4>
-                        <p class="mb-0">This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.</p>
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <div class="about-content">
+                                <h3>Why We Built This Tool</h3>
+                                <p>
+                                    In the India-Pakistan context, misinformation can have serious consequences, heightening tensions and potentially leading to real-world harm. TruthScan was developed to provide a reliable tool for anyone to quickly assess the credibility of news articles.
+                                </p>
+                                <p>
+                                    Our technology combines rule-based analysis with pattern recognition to identify characteristics commonly found in fake news. While no automated system is perfect, TruthScan offers a valuable first step in determining whether content requires additional verification.
+                                </p>
+                                <div class="about-disclaimer">
+                                    <h4><i class="fas fa-exclamation-triangle me-2"></i>Important Disclaimer</h4>
+                                    <p>
+                                        This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-image">
+                                <div class="about-image-content">
+                                    <div class="about-icon-large">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="about-icon-small about-icon-1">
+                                        <i class="fas fa-newspaper"></i>
+                                    </div>
+                                    <div class="about-icon-small about-icon-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="about-icon-small about-icon-3">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    <div class="about-icon-small about-icon-4">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <footer class="bg-dark text-white py-4 mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5><i class="fas fa-search-location me-2"></i>Fake News Detector</h5>
-                    <p class="text-light">A tool for combating misinformation</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer-brand">
+                            <a class="footer-logo d-flex align-items-center" href="#">
+                                <div class="logo-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="logo-text">
+                                    <span class="logo-primary">Truth</span><span class="logo-secondary">Scan</span>
+                                </div>
+                            </a>
+                            <p class="footer-tagline">Advanced fake news detection technology</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer-links">
+                            <div class="footer-links-column">
+                                <h4>Navigation</h4>
+                                <ul>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#tool">Detection Tool</a></li>
+                                    <li><a href="#about">About</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-links-column">
+                                <h4>Resources</h4>
+                                <ul>
+                                    <li><a href="#about">How It Works</a></li>
+                                    <li><a href="#about">Disclaimer</a></li>
+                                    <li><a href="#about">Methodology</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <p>&copy; 2025 Fake News Detector</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 TruthScan | All Rights Reserved</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>

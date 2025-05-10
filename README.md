@@ -1,42 +1,60 @@
-# Fake News Detector
+# TruthScan: Advanced Fake News Detection Platform
 
-A full-stack web application for detecting fake news using rule-based text analysis, particularly relevant for the India-Pakistan context where misinformation can have serious consequences.
+TruthScan is a sophisticated web application designed to analyze news articles and identify potential misinformation, particularly in the India-Pakistan context where accurate news is critical. This tool uses advanced text analysis and pattern recognition to evaluate the credibility of news content.
 
-![Fake News Detector](https://img.shields.io/badge/Status-Ready%20for%20Deployment-success)
+![TruthScan](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
-## 🌟 Features
+## 🚀 Features
 
-- **Text Analysis**: Paste article text directly for analysis
-- **URL Processing**: Enter news article URLs to automatically extract and analyze content
-- **Rule-Based Detection**: Analyzes text patterns, sensational language, and source attribution
-- **Confidence Scoring**: Provides a confidence level for each verification result
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Dual Input Methods**
+  - Paste full article text directly for analysis
+  - Enter article URL for automatic content extraction and analysis
+
+- **Comprehensive Analysis Factors**
+  - Sensational language detection (exaggerated claims, clickbait patterns)
+  - Source attribution evaluation (credible source references)
+  - Content depth assessment (substantive vs. superficial coverage)
+
+- **Clean, Intuitive Interface**
+  - Modern, responsive design with Bootstrap
+  - Real-time analysis feedback
+  - Detailed breakdown of verification results
+
+- **Advanced URL Content Extraction**
+  - Multi-strategy content extraction for complex news sites
+  - Robust error handling and fallback mechanisms
+  - Smart filtering of non-article elements (ads, navigation, etc.)
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5
-- **Backend**: Python with Flask
-- **Text Processing**: BeautifulSoup4 for web scraping and extraction
-- **API**: RESTful API design for communication between frontend and backend
+- **Frontend**
+  - HTML5, CSS3 with custom animations and transitions
+  - Vanilla JavaScript (ES6+) for interactivity
+  - Fully responsive design with Bootstrap 5
+
+- **Backend**
+  - Python with Flask framework
+  - BeautifulSoup4 for advanced web scraping
+  - Rule-based algorithm for fact-checking analysis
 
 ## 📋 Requirements
 
 - Python 3.11 or higher
-- Flask and its dependencies (flask-cors)
-- BeautifulSoup4 for web content extraction
-- Requests for HTTP requests
+- Flask and Flask-CORS for the web server
+- BeautifulSoup4 for HTML parsing and content extraction
+- Requests library for HTTP requests
 
 ## 🚀 Installation & Setup
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/fake-news-detector.git
-   cd fake-news-detector
+   git clone https://github.com/yourusername/truthscan.git
+   cd truthscan
    ```
 
-2. Install required dependencies:
+2. Install required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install flask flask-cors beautifulsoup4 requests
    ```
 
 3. Run the application:
@@ -44,48 +62,57 @@ A full-stack web application for detecting fake news using rule-based text analy
    python main.py
    ```
 
-4. Access the application in your browser:
+4. Open your browser and navigate to:
    ```
    http://localhost:5000
    ```
 
-## 📊 How it Works
+## 🔍 How TruthScan Works
 
-The fake news detection system uses a combination of techniques:
+TruthScan employs a multi-faceted approach to analyzing news content:
 
-1. **Sensational Language Detection**: Identifies words and phrases commonly used in clickbait and fake news
-2. **Source Analysis**: Checks for mentions of reliable sources and proper attribution
-3. **Text Pattern Analysis**: Evaluates the article's structure and tone for indicators of potential misinformation
-4. **URL Content Extraction**: Automatically pulls the main content from news URLs for analysis
+1. **Content Extraction**
+   - For URL inputs, TruthScan employs multiple extraction strategies to identify and extract the main article content.
+   - Advanced filtering removes ads, navigation, and other non-article elements.
 
-## 🔍 Usage
+2. **Text Analysis**
+   - The content is analyzed for indicators of potential misinformation:
+     - **Sensational Language**: Identifies hyperbolic, emotionally charged language commonly used in clickbait.
+     - **Source Attribution**: Evaluates whether the article cites credible sources.
+     - **Content Depth**: Assesses the substance and thoroughness of the reporting.
 
-1. Enter either article text or a URL in the provided input fields
-2. Click the "Verify" button to analyze the content
-3. View the verification result with confidence score and explanation
-4. Use the "New Verification" button to analyze another article
+3. **Result Generation**
+   - The analysis produces a verdict (real, fake, or uncertain) with a confidence score.
+   - Detailed explanation of the factors that contributed to the verdict.
 
-## ⚙️ Configuration
+## 📱 Usage Guide
 
-No additional configuration is required for basic usage. For deployment, consider:
+1. **Choose Input Method**
+   - Toggle between text input and URL input tabs based on your preference.
 
-- Setting environment variables for production
-- Configuring CORS settings for specific domains
-- Setting up a proper web server like Gunicorn
+2. **Submit Content**
+   - For text input: Copy and paste the full news article text.
+   - For URL input: Enter the complete URL of the news article.
 
-## 📝 Limitations
+3. **Review Results**
+   - View the overall verdict and confidence score.
+   - Examine the detailed breakdown of analysis factors.
+   - Use the "New Analysis" button to analyze another article.
 
-- The system uses rule-based detection rather than advanced ML models
-- Results are indicative and not guaranteed
-- URLs with complex JavaScript rendering might not be properly scraped
-- Always cross-verify information with multiple reliable sources
+## ⚠️ Limitations & Disclaimer
 
-## 🌱 Future Enhancements
+- TruthScan provides an automated assessment and should not be the sole basis for determining the veracity of news.
+- The system uses rule-based detection which, while effective, is not infallible.
+- Always cross-check information with multiple reliable sources.
+- URL extraction may not work perfectly on all websites due to variations in HTML structure.
 
-- Integration with pre-trained ML models for more accurate detection
-- Support for regional languages and context-specific misinformation
+## 💡 Future Enhancements
+
+- Integration with external fact-checking databases
+- Support for vernacular languages prevalent in the India-Pakistan region
+- Machine learning-based classification for higher accuracy
 - User accounts to save verification history
-- API access for third-party integrations
+- Browser extension for one-click verification
 
 ## 📄 License
 
@@ -97,4 +124,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-**Disclaimer**: This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.
+*Note: This tool is designed for educational and informational purposes. It should be used as part of a broader media literacy approach.*
