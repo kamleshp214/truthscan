@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-search-location"></i> Fake News Detector</h1>
+            <p>Verify the authenticity of news articles with AI-powered analysis</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="input-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Article Verification</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="article-text">Article Text</label>
+                        <textarea id="article-text" class="form-control" placeholder="Paste the article text here..." rows="8"></textarea>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="article-url">Article URL</label>
+                        <input type="url" id="article-url" class="form-control" placeholder="Enter the article URL (e.g., https://example.com/news)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button id="verify-btn" class="btn btn-primary">
+                            <i class="fas fa-check-circle"></i> Verify
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-section" id="result-section" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Verification Result</h2>
+                </div>
+                <div class="card-body">
+                    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing article...</p>
+                    </div>
+                    
+                    <div id="result-content" style="display: none;">
+                        <div class="result-indicator">
+                            <div id="result-icon" class="result-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="result-details">
+                                <h3 id="result-heading">Awaiting verification...</h3>
+                                <div class="confidence-meter">
+                                    <div id="confidence-bar" class="confidence-bar"></div>
+                                    <span id="confidence-text">Confidence: 0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-explanation">
+                            <h4>Analysis</h4>
+                            <p id="result-message">Please submit an article or URL to analyze.</p>
+                        </div>
+                        
+                        <button id="new-verification-btn" class="btn btn-outline">
+                            <i class="fas fa-redo"></i> New Verification
+                        </button>
+                    </div>
+                    
+                    <div id="error-message" class="error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p id="error-text">An error occurred</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>About This Tool</h2>
+                </div>
+                <div class="card-body">
+                    <p>This fake news detector uses AI to analyze news content and identify potentially misleading or false information. It's especially relevant for the India-Pakistan context, where misinformation can have serious consequences.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-robot"></i>
+                            <h3>AI-Powered Analysis</h3>
+                            <p>Uses natural language processing to evaluate text patterns associated with fake news</p>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-link"></i>
+                            <h3>URL Extraction</h3>
+                            <p>Automatically extracts article text from news URLs for convenient verification</p>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Trust Indicators</h3>
+                            <p>Evaluates key indicators of reliability including source attribution and language patterns</p>
+                        </div>
+                    </div>
+                    
+                    <div class="disclaimer">
+                        <h4>Disclaimer</h4>
+                        <p>This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fake News Detector | A tool for combating misinformation</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
