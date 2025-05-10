@@ -1071,6 +1071,20 @@ main {
         justify-content: flex-start;
         margin-top: 2rem;
     }
+    
+    .tech-icon {
+        width: 150px;
+        height: 150px;
+        font-size: 3.5rem;
+    }
+    
+    .process-step {
+        margin-bottom: 20px;
+    }
+    
+    .methodology-card {
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1099,6 +1113,28 @@ main {
     .section-title {
         font-size: 2rem;
     }
+    
+    .disclaimer-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .disclaimer-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .tech-details {
+        padding: 25px;
+    }
+    
+    .disclaimer-box {
+        padding: 25px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1126,6 +1162,44 @@ main {
     
     .verdict-text {
         font-size: 1.5rem;
+    }
+    
+    .methodology-section .section-title,
+    .disclaimer-section .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .process-step,
+    .methodology-card {
+        padding: 20px;
+    }
+    
+    .disclaimer-points li {
+        padding-left: 30px;
+    }
+    
+    .disclaimer-points li i {
+        font-size: 1rem;
+    }
+    
+    .disclaimer-header h3 {
+        font-size: 1.2rem;
     }
 }
 
