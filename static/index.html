@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-search-location me-2"></i>
+                Fake News Detector
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 bg-dark text-white">
+        <div class="container px-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold">Verify Before You Share</h1>
+                    <p class="lead mb-4">Use AI-powered analysis to detect potentially misleading or false information in news articles.</p>
+                    <a href="#verification" class="btn btn-primary btn-lg">
+                        <i class="fas fa-check-circle me-2"></i>Verify News Now
+                    </a>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block text-center">
+                    <i class="fas fa-newspaper text-primary" style="font-size: 160px;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <section id="verification" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary bg-opacity-10">
+                    <h2 class="mb-0">
+                        <i class="fas fa-file-alt me-2"></i>
+                        News Verification
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Provide either the article text or a URL to check if the news is potentially fake.
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="article-text" class="form-label">Article Text</label>
+                        <textarea id="article-text" class="form-control" rows="6" placeholder="Paste the article text here..."></textarea>
+                    </div>
+                    
+                    <div class="text-center my-3">
+                        <span class="divider-text">OR</span>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="article-url" class="form-label">Article URL</label>
+                        <input type="url" id="article-url" class="form-control" placeholder="Enter the article URL (e.g., https://example.com/news)">
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button id="verify-btn" class="btn btn-primary">
+                            <i class="fas fa-check-circle me-2"></i>Verify
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="result" class="mb-5" style="display: none;">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary bg-opacity-10">
+                    <h2 class="mb-0">
+                        <i class="fas fa-chart-pie me-2"></i>
+                        Verification Results
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <!-- Loading spinner -->
+                    <div id="loading" class="text-center py-5" style="display: none;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-3">Analyzing article content...</p>
+                    </div>
+                    
+                    <!-- Results content -->
+                    <div id="result-content" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4 mb-md-0">
+                                <div id="result-icon-container" class="mb-3">
+                                    <i id="result-icon" class="fas fa-question-circle" style="font-size: 80px;"></i>
+                                </div>
+                                <h3 id="result-heading">Analyzing...</h3>
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="mb-3">Confidence Score</h4>
+                                <div class="progress mb-3" style="height: 25px;">
+                                    <div id="confidence-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                </div>
+                                
+                                <div class="card bg-light bg-opacity-10 mt-4">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><i class="fas fa-info-circle me-2"></i>Analysis</h4>
+                                        <p id="result-message" class="card-text">Waiting for verification results...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <button id="new-verification-btn" class="btn btn-outline-primary">
+                                <i class="fas fa-redo me-2"></i>New Verification
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Error message -->
+                    <div id="error-message" class="alert alert-danger" role="alert" style="display: none;">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <span id="error-text">An error occurred</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary bg-opacity-10">
+                    <h2 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        About This Tool
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>This fake news detector uses a combination of AI techniques and rule-based analysis to identify potentially misleading or false information. It's especially relevant for the India-Pakistan context, where misinformation can have serious consequences.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-brain text-primary mb-3" style="font-size: 40px;"></i>
+                                    <h4>AI Analysis</h4>
+                                    <p>Uses pattern recognition to identify text patterns associated with fake news</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-link text-primary mb-3" style="font-size: 40px;"></i>
+                                    <h4>URL Extraction</h4>
+                                    <p>Automatically extracts and analyzes article text from news URLs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-shield-alt text-primary mb-3" style="font-size: 40px;"></i>
+                                    <h4>Trust Indicators</h4>
+                                    <p>Evaluates key indicators of reliability including source attribution</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-4">
+                        <h4><i class="fas fa-exclamation-triangle me-2"></i>Disclaimer</h4>
+                        <p class="mb-0">This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-search-location me-2"></i>Fake News Detector</h5>
+                    <p class="text-light">A tool for combating misinformation</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Fake News Detector</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

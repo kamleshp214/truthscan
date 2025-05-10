@@ -1,0 +1,127 @@
+/* Custom styles for Fake News Detector */
+
+/* General Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Divider with text */
+.text-center.my-3 {
+    position: relative;
+    z-index: 1;
+}
+
+.divider-text {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-gray-500);
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.text-center.my-3:before {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: var(--bs-gray-500);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Result icons */
+.fake-result {
+    color: var(--bs-danger);
+}
+
+.real-result {
+    color: var(--bs-success);
+}
+
+.uncertain-result {
+    color: var(--bs-warning);
+}
+
+/* Progress bar variations */
+.progress-bar.high-confidence {
+    background-color: var(--bs-success);
+}
+
+.progress-bar.medium-confidence {
+    background-color: var(--bs-warning);
+}
+
+.progress-bar.low-confidence {
+    background-color: var(--bs-danger);
+}
+
+/* Custom card hover effect */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature icon animations */
+.card-body i.fas {
+    transition: transform 0.3s ease;
+}
+
+.card-body:hover i.fas {
+    transform: scale(1.2);
+}
+
+/* Make textarea resizable only vertically */
+textarea {
+    resize: vertical;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1.display-4 {
+        font-size: 2.5rem;
+    }
+    
+    #result-icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1.display-4 {
+        font-size: 2rem;
+    }
+    
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Button hover effects */
+.btn {
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Focus styles for inputs and textareas */
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
