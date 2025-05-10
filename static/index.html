@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TruthScan | Advanced Fake News Detector</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/shield-alt.svg">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -55,12 +57,12 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item social-icons">
-                                    <a href="https://github.com" target="_blank" class="nav-link social-icon">
+                                    <a href="https://github.com/kamleshp214" target="_blank" class="nav-link social-icon">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item social-icons">
-                                    <a href="https://linkedin.com" target="_blank" class="nav-link social-icon">
+                                    <a href="https://www.linkedin.com/in/kamlesh-porwal-2b1a2a1a6/" target="_blank" class="nav-link social-icon">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
                                 </li>
@@ -75,14 +77,14 @@
                     <div class="row align-items-center hero-content">
                         <div class="col-lg-6">
                             <h1 class="hero-title">
-                                Detect <span class="text-highlight">Fake News</span> with Advanced AI Analysis
+                                Check <span class="text-highlight">Fake News</span> with My Smart AI Tool
                             </h1>
                             <p class="hero-subtitle">
-                                Our cutting-edge algorithm analyzes content patterns, sources, and language to identify potentially misleading information—particularly important in the India-Pakistan context.
+                                I built this tool to dig into content, sources, and wording to spot misleading news, especially for tricky topics like India-Pakistan relations.
                             </p>
                             <div class="hero-buttons">
                                 <a href="#tool" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-magnifying-glass me-2"></i>Start Analyzing
+                                    <i class="fas fa-magnifying-glass me-2"></i>Start Checking
                                 </a>
                                 <a href="#about" class="btn btn-outline-light btn-lg ms-3">
                                     <i class="fas fa-info-circle me-2"></i>Learn More
@@ -119,9 +121,9 @@
             <section class="tool-section section-padding" id="tool">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Fake News Detection Tool</h2>
+                        <h2 class="section-title">Fake News Checker</h2>
                         <p class="section-subtitle">
-                            Analyze news articles and identify potential misinformation with our advanced detection technology
+                            Use my tool to analyze news articles and catch potential misinformation fast.
                         </p>
                     </div>
                     
@@ -142,7 +144,7 @@
                                     <div class="tab-content" id="text-tab">
                                         <div class="form-floating mb-4">
                                             <textarea class="form-control" id="article-text" style="height: 220px" placeholder="Enter article text here"></textarea>
-                                            <label for="article-text">Paste the full article text here for analysis</label>
+                                            <label for="article-text">Paste the full article text here to check it</label>
                                         </div>
                                     </div>
                                     <div class="tab-content d-none" id="url-tab">
@@ -152,13 +154,13 @@
                                         </div>
                                         <div class="url-info">
                                             <i class="fas fa-info-circle"></i>
-                                            <span>We'll automatically extract and analyze the main content from the provided URL.</span>
+                                            <span>My tool will grab and analyze the main content from the URL you provide.</span>
                                         </div>
                                     </div>
                                     
                                     <div class="submit-container">
                                         <button id="verify-btn" class="btn btn-primary btn-lg">
-                                            <i class="fas fa-microscope me-2"></i>Analyze Content
+                                            <i class="fas fa-microscope me-2"></i>Check Content
                                         </button>
                                     </div>
                                 </div>
@@ -173,7 +175,7 @@
                                 <div class="results-header">
                                     <h3>
                                         <i class="fas fa-chart-pie me-2"></i>
-                                        Analysis Results
+                                        Check Results
                                     </h3>
                                 </div>
                                 
@@ -182,7 +184,7 @@
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
-                                    <p>Analyzing content...</p>
+                                    <p>Checking content...</p>
                                 </div>
                                 
                                 <!-- Results Content -->
@@ -193,7 +195,7 @@
                                                 <div id="verdict-indicator" class="verdict-indicator">
                                                     <i id="verdict-icon" class="fas fa-question-circle"></i>
                                                 </div>
-                                                <h3 id="verdict-text" class="verdict-text">Verifying Content...</h3>
+                                                <h3 id="verdict-text" class="verdict-text">Checking Content...</h3>
                                                 <div class="confidence-meter">
                                                     <div class="confidence-label">
                                                         <span>Confidence</span>
@@ -208,10 +210,10 @@
                                         <div class="col-lg-7">
                                             <div class="analysis-details">
                                                 <h4 class="analysis-title">
-                                                    <i class="fas fa-clipboard-list me-2"></i>Detailed Analysis
+                                                    <i class="fas fa-clipboard-list me-2"></i>Detailed Breakdown
                                                 </h4>
                                                 <div class="analysis-content">
-                                                    <p id="analysis-message">Awaiting analysis results...</p>
+                                                    <p id="analysis-message">Waiting for check results...</p>
                                                     
                                                     <div class="analysis-factors">
                                                         <div class="factor" id="factor-sensational">
@@ -220,7 +222,7 @@
                                                             </div>
                                                             <div class="factor-details">
                                                                 <h5>Sensationalism</h5>
-                                                                <p>Checking for exaggerated or sensational language</p>
+                                                                <p>Looking for over-the-top or hyped-up language</p>
                                                             </div>
                                                             <div class="factor-indicator">
                                                                 <i class="fas fa-circle-question"></i>
@@ -232,8 +234,8 @@
                                                                 <i class="fas fa-landmark"></i>
                                                             </div>
                                                             <div class="factor-details">
-                                                                <h5>Source Attribution</h5>
-                                                                <p>Checking for credible source references</p>
+                                                                <h5>Source Credibility</h5>
+                                                                <p>Checking if sources are legit and trustworthy</p>
                                                             </div>
                                                             <div class="factor-indicator">
                                                                 <i class="fas fa-circle-question"></i>
@@ -246,7 +248,7 @@
                                                             </div>
                                                             <div class="factor-details">
                                                                 <h5>Content Depth</h5>
-                                                                <p>Evaluating content length and depth</p>
+                                                                <p>Seeing if the article has enough substance</p>
                                                             </div>
                                                             <div class="factor-indicator">
                                                                 <i class="fas fa-circle-question"></i>
@@ -260,7 +262,7 @@
                                     
                                     <div class="results-actions">
                                         <button id="new-analysis-btn" class="btn btn-outline-primary">
-                                            <i class="fas fa-redo me-2"></i>New Analysis
+                                            <i class="fas fa-redo me-2"></i>Run New Check
                                         </button>
                                     </div>
                                 </div>
@@ -271,8 +273,8 @@
                                         <i class="fas fa-exclamation-triangle"></i>
                                     </div>
                                     <div class="error-content">
-                                        <h4>Analysis Error</h4>
-                                        <p id="error-message">Unable to complete analysis. Please try again.</p>
+                                        <h4>Check Failed</h4>
+                                        <p id="error-message">Something went wrong. Please try again.</p>
                                     </div>
                                 </div>
                             </div>
@@ -285,9 +287,9 @@
             <section class="features-section section-padding bg-light">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">How It Works</h2>
+                        <h2 class="section-title">How My Tool Works</h2>
                         <p class="section-subtitle">
-                            Our multi-faceted approach to detecting potentially misleading information
+                            My approach to catching misleading news
                         </p>
                     </div>
                     
@@ -297,9 +299,9 @@
                                 <div class="feature-icon">
                                     <i class="fas fa-language"></i>
                                 </div>
-                                <h3>Language Analysis</h3>
+                                <h3>Word Choice Check</h3>
                                 <p>
-                                    Identifies sensational language, exaggerated claims, and emotionally charged content that may indicate fake news.
+                                    Spots hyped-up language, big claims, or emotional triggers that often show up in fake news.
                                 </p>
                             </div>
                         </div>
@@ -309,9 +311,9 @@
                                 <div class="feature-icon">
                                     <i class="fas fa-sitemap"></i>
                                 </div>
-                                <h3>Source Verification</h3>
+                                <h3>Source Check</h3>
                                 <p>
-                                    Detects references to credible sources and proper attribution, key indicators of legitimate journalism.
+                                    Looks for solid sources and proper citations, which good journalism usually includes.
                                 </p>
                             </div>
                         </div>
@@ -321,9 +323,9 @@
                                 <div class="feature-icon">
                                     <i class="fas fa-robot"></i>
                                 </div>
-                                <h3>Pattern Recognition</h3>
+                                <h3>Pattern Spotting</h3>
                                 <p>
-                                    Employs advanced algorithms to identify text patterns commonly found in misleading articles.
+                                    Uses smart algorithms to find text patterns that fake news tends to follow.
                                 </p>
                             </div>
                         </div>
@@ -337,24 +339,24 @@
                     <div class="section-header text-center">
                         <h2 class="section-title">About TruthScan</h2>
                         <p class="section-subtitle">
-                            Combating misinformation in the India-Pakistan context
+                            Fighting misinformation in India-Pakistan news
                         </p>
                     </div>
                     
                     <div class="row align-items-center">
                         <div class="col-lg-6 mb-4 mb-lg-0">
                             <div class="about-content">
-                                <h3>Why We Built This Tool</h3>
+                                <h3>Why I Made This Tool</h3>
                                 <p>
-                                    In the India-Pakistan context, misinformation can have serious consequences, heightening tensions and potentially leading to real-world harm. TruthScan was developed to provide a reliable tool for anyone to quickly assess the credibility of news articles.
+                                    Misinformation in India-Pakistan news can stir up trouble and even cause harm. I created TruthScan to give people a quick way to check if a news article seems legit.
                                 </p>
                                 <p>
-                                    Our technology combines rule-based analysis with pattern recognition to identify characteristics commonly found in fake news. While no automated system is perfect, TruthScan offers a valuable first step in determining whether content requires additional verification.
+                                    My tool uses a mix of rule-based checks and pattern spotting to flag signs of fake news. It’s not perfect, but it’s a solid starting point for figuring out if you need to dig deeper.
                                 </p>
                                 <div class="about-disclaimer">
-                                    <h4><i class="fas fa-exclamation-triangle me-2"></i>Important Disclaimer</h4>
+                                    <h4><i class="fas fa-exclamation-triangle me-2"></i>Heads-Up</h4>
                                     <p>
-                                        This tool provides an automated assessment and should not be the sole basis for determining the veracity of news. Always cross-check information with multiple reliable sources.
+                                        This is an automated tool, so don’t rely on it alone. Always double-check with trusted sources.
                                     </p>
                                 </div>
                             </div>
@@ -388,9 +390,9 @@
             <section class="methodology-section section-padding" id="how-it-works">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">How TruthScan Works</h2>
+                        <h2 class="section-title">How TruthScan Checks News</h2>
                         <p class="section-subtitle">
-                            Our comprehensive approach to detecting misinformation
+                            My full process for spotting misinformation
                         </p>
                     </div>
                     
@@ -400,8 +402,8 @@
                                 <div class="process-step">
                                     <div class="step-number">1</div>
                                     <div class="step-content">
-                                        <h3>Input Content</h3>
-                                        <p>Submit news content either by pasting the full text or providing a URL to the article. Our advanced web scraper will extract the main content from a URL.</p>
+                                        <h3>Add Content</h3>
+                                        <p>Paste the article text or drop in a URL. My tool will pull the main content from the link.</p>
                                     </div>
                                 </div>
                             </div>
@@ -409,8 +411,8 @@
                                 <div class="process-step">
                                     <div class="step-number">2</div>
                                     <div class="step-content">
-                                        <h3>Content Analysis</h3>
-                                        <p>Our system analyzes multiple aspects of the content, including sensational language, source credibility, factual consistency, and more.</p>
+                                        <h3>Break It Down</h3>
+                                        <p>My system checks the content for things like hyped-up wording, source quality, and factual consistency.</p>
                                     </div>
                                 </div>
                             </div>
@@ -418,8 +420,8 @@
                                 <div class="process-step">
                                     <div class="step-number">3</div>
                                     <div class="step-content">
-                                        <h3>Verification Result</h3>
-                                        <p>Receive a detailed verification report with confidence score and specific factors that influenced the result.</p>
+                                        <h3>Get Results</h3>
+                                        <p>You’ll get a report with a confidence score and details on what shaped the verdict.</p>
                                     </div>
                                 </div>
                             </div>
@@ -429,12 +431,12 @@
                     <div class="tech-details mt-5">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
-                                <h3>Our Technology</h3>
-                                <p>TruthScan employs multiple detection strategies to verify news content:</p>
+                                <h3>My Tech</h3>
+                                <p>TruthScan uses a few smart tricks to check news:</p>
                                 <ul class="feature-list">
-                                    <li><i class="fas fa-check-circle"></i> <strong>Source Analysis:</strong> Checking for reputable source references</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Language Analysis:</strong> Detecting sensationalist or inflammatory language</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Content Evaluation:</strong> Assessing factual depth and consistency</li>
+                                    <li><i class="fas fa-check-circle"></i> <strong>Source Check:</strong> Looking for legit source mentions</li>
+                                    <li><i class="fas fa-check-circle"></i> <strong>Word Check:</strong> Spotting over-the-top or inflammatory language</li>
+                                    <li><i class="fas fa-check-circle"></i> <strong>Content Check:</strong> Gauging depth and consistency</li>
                                 </ul>
                             </div>
                             <div class="col-lg-6">
@@ -453,9 +455,9 @@
             <section class="methodology-section section-padding bg-light" id="methodology">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Our Methodology</h2>
+                        <h2 class="section-title">My Approach</h2>
                         <p class="section-subtitle">
-                            The systematic approach behind our verification process
+                            How I built the checking process
                         </p>
                     </div>
                     
@@ -464,8 +466,8 @@
                             <div class="col-md-6 col-lg-3 mb-4">
                                 <div class="methodology-card">
                                     <div class="card-icon"><i class="fas fa-language"></i></div>
-                                    <h3>Linguistic Analysis</h3>
-                                    <p>We analyze text for emotional language, exaggerated claims, and clickbait patterns that are common in fake news. Objective reporting typically uses more measured language.</p>
+                                    <h3>Language Check</h3>
+                                    <p>I look for emotional, overblown, or clickbaity wording common in fake news. Real news usually keeps it calm and measured.</p>
                                 </div>
                             </div>
                             
@@ -473,23 +475,23 @@
                                 <div class="methodology-card">
                                     <div class="card-icon"><i class="fas fa-quote-right"></i></div>
                                     <h3>Source Verification</h3>
-                                    <p>Credible news cites specific sources, experts, and organizations. Our system checks for these references and evaluates their reliability.</p>
+                                    <p>Good news names specific sources, experts, or groups. I check for those and see if they’re trustworthy.</p>
                                 </div>
                             </div>
                             
                             <div class="col-md-6 col-lg-3 mb-4">
                                 <div class="methodology-card">
                                     <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
-                                    <h3>Balance Assessment</h3>
-                                    <p>We look for balanced reporting that presents multiple perspectives, especially important in India-Pakistan news where bias can be significant.</p>
+                                    <h3>Balance Check</h3>
+                                    <p>I look for fair reporting that shows both sides, especially in India-Pakistan news where bias can sneak in.</p>
                                 </div>
                             </div>
                             
                             <div class="col-md-6 col-lg-3 mb-4">
                                 <div class="methodology-card">
                                     <div class="card-icon"><i class="fas fa-brain"></i></div>
-                                    <h3>Contextual Understanding</h3>
-                                    <p>Our system evaluates content within its proper historical and political context, helping to identify misrepresentations of complex regional issues.</p>
+                                    <h3>Context Check</h3>
+                                    <p>My tool weighs the content against historical and political context to catch misrepresentations of tricky regional issues.</p>
                                 </div>
                             </div>
                         </div>
@@ -501,9 +503,9 @@
             <section class="disclaimer-section section-padding" id="disclaimer">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Important Disclaimer</h2>
+                        <h2 class="section-title">Heads-Up Before Using</h2>
                         <p class="section-subtitle">
-                            Please read before using our detection tool
+                            Read this before trying my tool
                         </p>
                     </div>
                     
@@ -512,25 +514,25 @@
                             <div class="disclaimer-icon">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
-                            <h3>TruthScan is provided for educational and informational purposes only</h3>
+                            <h3>TruthScan is for learning and info purposes only</h3>
                         </div>
                         
                         <div class="disclaimer-content">
-                            <p>While we strive for accuracy, no automated system can replace critical thinking and comprehensive fact-checking.</p>
+                            <p>I worked hard to make this accurate, but no automated tool can replace your own judgment and fact-checking.</p>
                             
                             <ul class="disclaimer-points">
-                                <li><i class="fas fa-exclamation-circle"></i> TruthScan may not detect all instances of misinformation or fake news.</li>
-                                <li><i class="fas fa-exclamation-circle"></i> Results should be considered as one tool among many for evaluating news credibility.</li>
-                                <li><i class="fas fa-exclamation-circle"></i> Always cross-reference information with multiple reliable sources.</li>
-                                <li><i class="fas fa-exclamation-circle"></i> Our system is continuously improving but has inherent limitations.</li>
-                                <li><i class="fas fa-exclamation-circle"></i> TruthScan does not claim to be the definitive authority on news verification.</li>
+                                <li><i class="fas fa-exclamation-circle"></i> TruthScan might miss some fake news.</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Use its results as one piece of the puzzle, not the whole answer.</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Always double-check with trusted sources.</li>
+                                <li><i class="fas fa-exclamation-circle"></i> My tool is improving but has limits.</li>
+                                <li><i class="fas fa-exclamation-circle"></i> TruthScan isn’t the final word on what’s true.</li>
                             </ul>
                             
-                            <p>We encourage users to develop their own media literacy skills and approach all news with a healthy skepticism, especially on sensitive topics related to India-Pakistan relations.</p>
+                            <p>I encourage you to sharpen your media literacy and question all news, especially on sensitive India-Pakistan topics.</p>
                         </div>
                         
                         <div class="disclaimer-actions text-center mt-4">
-                            <a href="#tool" class="btn btn-primary">Use Responsibly</a>
+                            <a href="#tool" class="btn btn-primary">Use It Wisely</a>
                         </div>
                     </div>
                 </div>
@@ -551,7 +553,7 @@
                                     <span class="logo-primary">Truth</span><span class="logo-secondary">Scan</span>
                                 </div>
                             </a>
-                            <p class="footer-tagline">Advanced fake news detection technology</p>
+                            <p class="footer-tagline">My tool for spotting fake news</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -577,7 +579,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 TruthScan | All Rights Reserved</p>
+                    <p>© 2025 TruthScan | All Rights Reserved</p>
                 </div>
             </div>
         </footer>

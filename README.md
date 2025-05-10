@@ -24,6 +24,7 @@ TruthScan is a sophisticated web application designed to analyze news articles a
   - Multi-strategy content extraction for complex news sites
   - Robust error handling and fallback mechanisms
   - Smart filtering of non-article elements (ads, navigation, etc.)
+  - Site-specific handling for popular news sources (BBC, Al Jazeera, Times of India)
 
 ## 🛠️ Technology Stack
 
@@ -48,7 +49,7 @@ TruthScan is a sophisticated web application designed to analyze news articles a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/truthscan.git
+   git clone https://github.com/kamleshp214/truthscan.git
    cd truthscan
    ```
 
@@ -74,6 +75,7 @@ TruthScan employs a multi-faceted approach to analyzing news content:
 1. **Content Extraction**
    - For URL inputs, TruthScan employs multiple extraction strategies to identify and extract the main article content.
    - Advanced filtering removes ads, navigation, and other non-article elements.
+   - Site-specific extraction logic for popular news sites like BBC, Al Jazeera, and Times of India.
 
 2. **Text Analysis**
    - The content is analyzed for indicators of potential misinformation:
@@ -84,6 +86,7 @@ TruthScan employs a multi-faceted approach to analyzing news content:
 3. **Result Generation**
    - The analysis produces a verdict (real, fake, or uncertain) with a confidence score.
    - Detailed explanation of the factors that contributed to the verdict.
+   - Visual indicators of result reliability through color-coded confidence meters.
 
 ## 📱 Usage Guide
 
@@ -98,6 +101,24 @@ TruthScan employs a multi-faceted approach to analyzing news content:
    - View the overall verdict and confidence score.
    - Examine the detailed breakdown of analysis factors.
    - Use the "New Analysis" button to analyze another article.
+
+## 🧠 Technical Implementation Details
+
+### Backend Architecture
+
+The application uses a Flask-based backend with the following components:
+
+- **Web Scraping Module**: Utilizes BeautifulSoup4 to extract article content from URLs with specialized handling for different news sites.
+- **Text Analysis Engine**: Implements rule-based algorithms to detect patterns associated with fake news.
+- **API Endpoints**: RESTful API design for handling verification requests and returning structured results.
+
+### Frontend Implementation
+
+The frontend is built with modern web technologies:
+
+- **Responsive Design**: Adapts seamlessly to different screen sizes using Bootstrap 5.
+- **Interactive UI**: Real-time feedback and visual indicators for verification results.
+- **Error Handling**: Comprehensive client-side validation and error messaging.
 
 ## ⚠️ Limitations & Disclaimer
 
@@ -121,6 +142,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👥 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📬 Contact
+
+- **Developer**: Kamlesh Patel
+- **GitHub**: [github.com/kamleshp214](https://github.com/kamleshp214)
+- **LinkedIn**: [linkedin.com/in/kamleshp214](https://linkedin.com/in/kamleshp214)
 
 ---
 
