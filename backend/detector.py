@@ -238,7 +238,7 @@ def model_based_fake_news_detection(text: str, model, tokenizer) -> Tuple[str, f
 
 def detect_fake_news(text: str) -> Tuple[str, float, str]:
     """
-    Detect if the given text is fake news.
+    Detect if the given text is fake news using rule-based approach.
     
     Args:
         text: The article text to analyze
@@ -251,19 +251,11 @@ def detect_fake_news(text: str) -> Tuple[str, float, str]:
         return "fake", 0.9, "Text is too short for reliable analysis"
     
     try:
-        # Try to use the model-based approach
-        current_model, current_tokenizer = load_model()
-        
-        if current_model and current_tokenizer:
-            logger.debug("Using model-based detection")
-            return model_based_fake_news_detection(text, current_model, current_tokenizer)
-        else:
-            # Fall back to rule-based approach
-            logger.debug("Using rule-based detection")
-            return rule_based_fake_news_detection(text)
+        # Use rule-based approach
+        logger.debug("Using rule-based detection")
+        return rule_based_fake_news_detection(text)
             
     except Exception as e:
         logger.error(f"Error in fake news detection: {str(e)}")
-        # In case of any errors, use rule-based approach
-        logger.info("Error occurred, using rule-based detection")
-        return rule_based_fake_news_detection(text)
+        # Return a default response in case of errors
+        return "uncertain", 0.5, "Unable to analyze the text due to an error"
