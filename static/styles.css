@@ -847,6 +847,220 @@ main {
     margin-bottom: 0;
 }
 
+/* === HOW IT WORKS SECTION === */
+.methodology-section {
+    padding: 80px 0;
+}
+
+.methodology-section .section-title {
+    margin-bottom: 15px;
+}
+
+.process-steps {
+    margin-top: 60px;
+}
+
+.process-step {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.tech-details {
+    margin-top: 70px;
+    padding: 40px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tech-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li i {
+    color: var(--success-color);
+    margin-right: 10px;
+}
+
+.tech-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tech-icon {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5rem;
+    box-shadow: 0 15px 35px rgba(67, 97, 238, 0.3);
+    animation: pulse 3s infinite;
+}
+
+/* === METHODOLOGY SECTION === */
+.methodology-cards {
+    margin-top: 40px;
+}
+
+.methodology-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.methodology-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.methodology-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+/* === DISCLAIMER SECTION === */
+.disclaimer-section {
+    padding: 80px 0;
+}
+
+.disclaimer-box {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--warning-color);
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.disclaimer-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--warning-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.disclaimer-header h3 {
+    color: var(--warning-color);
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.disclaimer-points {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.disclaimer-points li {
+    padding: 10px 0;
+    padding-left: 35px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.disclaimer-points li:last-child {
+    border-bottom: none;
+}
+
+.disclaimer-points li i {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: var(--warning-color);
+    font-size: 1.2rem;
+}
+
+/* Social icons in navbar */
+.social-icons .nav-link {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons .nav-link:hover {
+    color: var(--primary-light);
+}
+
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 992px) {
     .hero-title {
@@ -912,5 +1126,18 @@ main {
     
     .verdict-text {
         font-size: 1.5rem;
+    }
+}
+
+/* Animation for tech section icon */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(67, 97, 238, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
     }
 }
